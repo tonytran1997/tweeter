@@ -18,7 +18,10 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-   <link https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" type="text/css" />
+    
+   <!-- Header CSS -->
+   <link rel="stylesheet" href="/styles/header.css" type="text/css"/>
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -29,9 +32,19 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
+    <nav class="nav-Bar">
+      <span class="logo">TWEETER</span> 
     </nav>
+
+  <header class="head">
+      <div>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div>
+          <h2>Tony Tran</h2>
+      </div>
+  </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container"></main>
