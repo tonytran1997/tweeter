@@ -1,0 +1,36 @@
+.new-tweet {
+  margin: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 600;
+}
+
+button {
+  border: none;
+  font-size: medium;
+  font-family: "Bungee";
+  background-color:#dfb735;
+  color: #ffffff;
+}
+
+textarea {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  display: block;
+  resize: none;
+  border: none;
+  border-bottom: solid;
+  background-color: #dba032;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.counter {
+  font-family:'Bungee', sans-serif;
+  float: right; 
+}

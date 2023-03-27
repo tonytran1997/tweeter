@@ -1,0 +1,26 @@
+article:hover {
+  box-shadow: 10px 10px goldenrod;
+}
+
+article {
+  border: 2px solid black;
+  padding: 1em;
+
+}
+
+article header, article header .tweet-avatar-name, article footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article .tweet-content {
+  text-align: center;
+  padding: 1em 0;
+  border-bottom: 2px solid black;
+}
+
+article footer .icons i:hover {
+  color: red
+}
+

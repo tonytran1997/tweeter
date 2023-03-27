@@ -1,8 +1,14 @@
 .nav-Bar {
   height: 120px;
   width: 100%;
-  background-color: #030200;
-  color: FFFFFF;
+  background-color: #e6ae36;
+  color: #FFFFFF;
   font-family: "Bungee";
+  justify-content: space-between;
+}
+
+.nav-Bar-Right {
+  display: flex; 
+  align-items: center;
   margin: 1.5em;
 }
