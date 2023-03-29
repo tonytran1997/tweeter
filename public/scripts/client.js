@@ -29,7 +29,9 @@ const data = [
 ]
 
 const renderTweets = function(tweets) {
-
+  for (let obj of tweets) {
+    $('#container').prepend(createTweetElement(obj));
+  }
 };
 
 const createTweetElement = function(tweet) {
@@ -43,7 +45,7 @@ const createTweetElement = function(tweet) {
         <h4>${tweetData.user.handle}</h4>
       </header>
       <div class="tweet-content">
-        ${escape(tweetData.content.text)} 
+        ${tweetData.content.text} 
       </div>
       <footer>
         <div>${moment(tweetData.created_at).fromNow()}</div>
@@ -58,3 +60,10 @@ const createTweetElement = function(tweet) {
 };
 
 renderTweets(data);
+
+$(document).ready(function() {
+  $("#new-tweets").submit(function(event) {
+    event.preventDefault();
+    console.log("Tweeter!")
+  })
+});
