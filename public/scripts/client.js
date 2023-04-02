@@ -54,3 +54,14 @@ $(document).ready(function() {
     console.log("Tweeter!")
   })
 });
+
+const message = $(this).children("#tweet-text")  ;
+  if (!message.val()) {
+    alert("You haven't tweeted anything!")
+    return false;
+  }
+  if (!message.val.length > 140) {
+    alert("Your tweet is too long!")
+    return false;
+  }
+  
