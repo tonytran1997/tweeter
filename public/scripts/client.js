@@ -54,12 +54,10 @@ const loadTweets = () => {
     event.preventDefault();
     const message = $(this).children("#tweet-text")  ;
   if (!message.val()) {
-    alert("You haven't tweeted anything!")
-    return false;
+    errorMessage("You haven't tweeted anything!")
   }
   if (!message.val.length > 140) {
-    alert("Your tweet is too long!")
-    return false;
+    errorMessage("Your tweet is too long!")
   } else {
     $.ajax ({
       url:"/tweets",
@@ -74,21 +72,21 @@ const loadTweets = () => {
   })
 
   
-const errorMessage = (message) => {
-  if (message === 'over count') {
-    $(".error").slideDown("slow");
-    $(".error").hide();
-    $(".error").empty();
-    $(".error").append("<p> Your Tweet is too Long!</p>");
-  }
-  if (message === 'empty') {
-    $(".error").slideDown("slow");
-    $(".error").hide();
-    $(".error").empty();
-    $(".error").append("<p> Your Tweet is Empty!</p>");
-  } else {
-    $(".error").hide();
-    $(".error").empty();
-  }
-};
+  const errorMessage = (message) => {
+    if (message === 'over count') {
+      $(".error").slideDown("slow");
+      $(".error").hide();
+      $(".error").empty();
+      $(".error").append("<p> Your Tweet is too Long!</p>");
+    }
+    if (message === 'empty') {
+      $(".error").slideDown("slow");
+      $(".error").hide();
+      $(".error").empty();
+      $(".error").append("<p> Your Tweet is Empty!</p>");
+    } else {
+      $(".error").hide();
+      $(".error").empty();
+    }
+  };
 });

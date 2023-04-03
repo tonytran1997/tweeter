@@ -41,3 +41,14 @@ textarea {
   color: red;
   font-family: "Source Sans Pro", sans-serif;
 }
+
+@media only screen and (min-width: 1024px) {
+  .new-tweet {
+    margin: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 600;
+  }
+}
