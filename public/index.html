@@ -46,8 +46,6 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <script src="dist/timeago.min.js"></script>
-
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
 
@@ -61,8 +59,14 @@
   <body>
     <!-- Top nav bar (fixed) -->
     <nav class="nav-Bar">
-      <span class="logo">TWEETER</span>
-      <p><strong> Write </strong> a new tweet</p>
+      <div>
+        <span class="logo">TWEETER</span>
+      </div>
+      <footer>
+        <span>Write a new tweet</span>
+          <i class="fas fa-angle-double-down"></i>
+      </footer>
+      
     </nav>
 
     <header>
@@ -87,28 +91,28 @@
           </div>
         </form>
       </section>
-
-      <article>
-        <header>
-          <div class="tweet-avatar-name">
-            <img src="/images/profile-hex.png" width="100" height="100" />
-            <div class="username">Newton</div>
+        <span id="tweets-container"><article>
+          <header>
+            <div class="tweet-avatar-name">
+              <img src="/images/profile-hex.png" width="100" height="100" />
+              <div class="username">Newton</div>
+            </div>
+            <div class="userid">@SirIsaac</div>
+          </header>
+  
+          <div class="tweet-content">
+            I have seen further by standing on the shoulder of giants
           </div>
-          <div class="userid">@SirIsaac</div>
-        </header>
-
-        <div class="tweet-content">
-          I have seen further by standing on the shoulder of giants
-        </div>
-        <footer>
-          <div class="timeago">10 days ago</div>
-          <div class="icons">
+          <footer>
+            <div class="timeago">10 days ago</div>
+            <div class="icons">
               <i class="fas fa-flag"></i>
               <i class="fas fa-retweet"></i>
               <i class="fas fa-heart"></i>
-          </div>
-        </footer>
-      </article>
+            </div>
+          </footer>
+        </article>
+      </span>
     </main>
   </body>
 </html>

@@ -4,14 +4,15 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+$(document).ready(function() {
 
 const renderTweets = function(tweets) {
   for (let obj of tweets) {
-    $('#container').prepend(createTweetElement(obj));
+    $('#tweets-container').prepend(createTweetElement(obj));
   }
 };
 
-const createTweetElement = function(tweet) {
+const createTweetElement = function(tweetData) {
   let $tweet = `
     <article>
       <header>
@@ -25,7 +26,7 @@ const createTweetElement = function(tweet) {
         ${tweetData.content.text} 
       </div>
       <footer>
-        <div>${moment(tweetData.created_at).fromNow()}</div>
+        <div>${tweetData.created_at}</div>
         <div class="icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -47,15 +48,11 @@ const loadTweets = () => {
   })
 };
 
-$(document).ready(function() {
-  loadTweets()
-  $("#new-tweets").submit(function(event) {
-    event.preventDefault();
-    console.log("Tweeter!")
-  })
-});
 
-const message = $(this).children("#tweet-text")  ;
+  loadTweets()
+  $("form").submit(function(event) {
+    event.preventDefault();
+    const message = $(this).children("#tweet-text")  ;
   if (!message.val()) {
     alert("You haven't tweeted anything!")
     return false;
@@ -63,5 +60,34 @@ const message = $(this).children("#tweet-text")  ;
   if (!message.val.length > 140) {
     alert("Your tweet is too long!")
     return false;
-  }
+  } else {
+    $.ajax ({
+      url:"/tweets",
+      method: 'POST'
+    })
+    .then((data) => {
+      loadTweets();
+    })
+  };
+    console.log("Tweeter!")
+  })
+
   
+const errorMessage = (message) => {
+  if (message === 'over count') {
+    $(".error").slideDown("slow");
+    $(".error").hide();
+    $(".error").empty();
+    $(".error").append("<p> Your Tweet is too Long!</p>");
+  }
+  if (message === 'empty') {
+    $(".error").slideDown("slow");
+    $(".error").hide();
+    $(".error").empty();
+    $(".error").append("<p> Your Tweet is Empty!</p>");
+  } else {
+    $(".error").hide();
+    $(".error").empty();
+  }
+};
+});

@@ -32,5 +32,12 @@ textarea {
 
 .counter {
   font-family:'Bungee', sans-serif;
-  float: right; 
+  float: right;
+  color: red; 
+}
+
+.error {
+  text-align: center;
+  color: red;
+  font-family: "Source Sans Pro", sans-serif;
 }
