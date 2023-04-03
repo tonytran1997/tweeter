@@ -63,7 +63,8 @@ const loadTweets = () => {
   } else {
     $.ajax ({
       url:"/tweets",
-      method: 'POST'
+      method: 'POST',
+      data: $(this).serialize()
     })
     .then((data) => {
       loadTweets();
