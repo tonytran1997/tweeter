@@ -8,9 +8,9 @@
 }
 
 .nav-Bar-Right {
-  display: flex; 
-  align-items: center;
-  margin: 1.5em;
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -21,8 +21,8 @@
   }
 
   .nav-Bar-Right {
-    display: flex; 
-    align-items: center;
-    margin: 1.5em;
+    position: absolute;
+    top: 8px;
+    right: 16px;
   }
 }
