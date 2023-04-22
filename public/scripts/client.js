@@ -39,6 +39,7 @@ const createTweetElement = function(tweetData) {
   return $tweet;
 };
 
+//GET tweets from /tweets
 const loadTweets = () => {
   $.ajax ({
     url:"/tweets",
@@ -54,6 +55,7 @@ $(document).ready(function() {
 
   loadTweets()
 
+  //Submit the form data without the page to refresh
   $("form").submit(function(event) {
     event.preventDefault();
     const tweetText = $('#tweet-text').val().length;

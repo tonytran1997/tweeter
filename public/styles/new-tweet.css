@@ -1,6 +1,6 @@
 .new-tweet {
   width: 90%;
-  margin: 0.5em;
+  margin: 1em;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -8,7 +8,6 @@
   font-weight: 600;
 }
 
-/* new tweet button */
 .submit-and-display button {
   border: none;
   font-size: medium;
@@ -29,7 +28,6 @@ label {
   font-size: smaller;
 }
 
-/* new tweet box formatting */
 textarea {
   outline: none;
   overflow: hidden;
@@ -52,7 +50,6 @@ textarea {
   visibility: hidden;
 }
 
-/* red font when words count exceeds 140 char */
 .negative-count {
   color: red;
 }
@@ -60,5 +57,6 @@ textarea {
 @media only screen and (min-width:1024px) {
   .new-tweet {
     width: 90%;
+    margin: 1.5em;
   }
 }
