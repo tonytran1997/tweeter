@@ -1,25 +1,42 @@
 article:hover {
-  box-shadow: 10px 10px goldenrod;
+  box-shadow: 5px 10px;
+  color: #f1a707;
 }
 
-article {
-  border: 2px solid black;
-  padding: 1em;
-
-}
-
-article header, article header .tweet-avatar-name, article footer {
+.tweet-head {
+  font-size: 20px;
+  margin: 0.5em;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-article .tweet-content {
-  text-align: center;
-  padding: 1em 0;
-  border-bottom: 2px solid black;
+article .tweet-head div span{
+  font-size: 20px;
+  align-self: center;
+  font-weight: 100
 }
 
-article footer .icons i:hover {
-  color: red
+.tweet-foot div span {
+  font-size: 70%;
+}
+
+.tweet-reactions {
+  display: flex;
+  justify-content: right;
+  font-size: 70%;
+}
+
+@media only screen and (min-width:1024px) {
+  .container {
+    width: 70%;
+    padding: 0;
+  }
+
+  .container .tweet-container article {
+    border: solid;
+  }
+
+  .tweet-container{
+    width: 90%;
+  }
 }

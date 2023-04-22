@@ -3,40 +3,41 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-$(document).ready(function() {
-
 const renderTweets = function(tweets) {
   for (let obj of tweets) {
-    $('#tweets-container').prepend(createTweetElement(obj));
+    $('.tweet-container').prepend(createTweetElement(obj));
   }
 };
 
 const createTweetElement = function(tweetData) {
-  let $tweet = `
+  const $tweet = `
     <article>
-      <header>
-        <div class="tweet-avatar-name">
-          <img src=${tweetData.user.avatars}>
-          <h3>${tweetData.user.name}</h3>
+      <header class="tweet-head">
+        <div>
+          <img src=${tweetData.user.avatars}/>
+          <span>${tweetData.user.name}</span>
         </div>
-        <h4>${tweetData.user.handle}</h4>
+        <div>
+          <span>${tweetData.user.handle}</span>
+        </div>
       </header>
-      <div class="tweet-content">
-        ${tweetData.content.text} 
+      <div>
+        <span>${tweetData.content.text}</span>
       </div>
-      <footer>
-        <div>${tweetData.created_at}</div>
-        <div class="icons">
+      <footer class="tweet-foot">
+        <div>
+          <span>${timeago.format(tweetData.created_at)}</span>
+        </div>
+        <div class="tweet-reactions"> 
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
           <i class="fas fa-heart"></i>
         </div>
       </footer>
-    </article>`;
-  return $tweet; 
+    </article>
+  `;
+  return $tweet;
 };
-
 
 const loadTweets = () => {
   $.ajax ({
@@ -44,49 +45,47 @@ const loadTweets = () => {
     method: 'GET'
   })
   .then((data) => {
+    console.log(data),
     renderTweets(data);
   })
 };
 
+$(document).ready(function() {
 
   loadTweets()
+
   $("form").submit(function(event) {
     event.preventDefault();
-    const message = $(this).children("#tweet-text")  ;
-  if (!message.val()) {
-    errorMessage("You haven't tweeted anything!")
-  }
-  if (!message.val.length > 140) {
-    errorMessage("Your tweet is too long!")
-  } else {
-    $.ajax ({
-      url:"/tweets",
-      method: 'POST',
-      data: $(this).serialize()
-    })
-    .then((data) => {
-      loadTweets();
-    })
-  };
-    console.log("Tweeter!")
-  })
-
-  
-  const errorMessage = (message) => {
-    if (message === 'over count') {
-      $(".error").slideDown("slow");
-      $(".error").hide();
-      $(".error").empty();
-      $(".error").append("<p> Your Tweet is too Long!</p>");
+    const tweetText = $('#tweet-text').val().length;
+    const message = $(this).children("#tweet-text");
+    if (tweetText == 0) {
+      $('#errorMessage').css('visibility', 'visible');
+      $('#errorMessage').val("You haven't tweeted anything!");
     }
-    if (message === 'empty') {
-      $(".error").slideDown("slow");
-      $(".error").hide();
-      $(".error").empty();
-      $(".error").append("<p> Your Tweet is Empty!</p>");
+    else if (tweetText > 140) {
+      $('#errorMessage').css('visibility', 'visible');
+      $('#errorMessage').val("Your tweet is too long!");
     } else {
-      $(".error").hide();
-      $(".error").empty();
+      $('#errorMessage').css('visibility', 'hidden');  
+      $.ajax ({
+        url:"/tweets",
+        method: 'POST',
+        data: $(this).serialize()
+      })
+      .then((data) => {
+        $.get("/tweets", (server) => {
+          const newTweets = server.slice(-1)
+          renderTweets(newTweets);
+        })
+        $('#tweet-text').value = "";
+      })
+      $(this)
+        .closest(".new-tweet")
+        .find(".counter")
+        .removeClass("negative-count")
+        .text(140)
+
+      console.log("Tweeter!")
     }
-  };
+  })
 });

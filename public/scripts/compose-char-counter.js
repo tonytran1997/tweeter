@@ -7,11 +7,13 @@ $(document).ready(function() {
       $(this)
         .closest(".new-tweet")
         .find(".counter")
+        .removeClass("negative-count")
         .text(140 - count)
     } else {
       $(this)
       .closest(".new-tweet")
       .find(".counter")
+      .addClass("negative-count")
       .text(140 - count)
     }
   })

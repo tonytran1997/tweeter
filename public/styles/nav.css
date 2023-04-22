@@ -1,28 +1,51 @@
 .nav-Bar {
-  height: 120px;
+  background-color: #f1a707;
+  height: 130px;
   width: 100%;
-  background-color: #e6ae36;
-  color: #FFFFFF;
-  font-family: "Bungee";
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.nav-Bar-Right {
-  position: absolute;
-  top: 8px;
-  right: 16px;
+.logo {
+  font-family: "Bungee";
+  color: #ffffff;
+  font-size: larger;
+  margin: 1.5em;
 }
 
-@media only screen and (min-width: 1024px) {
+.nav-Bar footer .write {
+  background-color: #f1a707;
+  font-family: 'Sans-serif';
+  font-size: 100%;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  margin: 1.5em;
+  outline: none;
+  border: none;
+  color: #ffffff;
+}
+
+.nav-Bar footer .fas {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+@media only screen and (min-width:1024px) {
   .nav-Bar {
-    height: 120px;
+    background-color: #f1a707;
+    height: 130px;
     width: 100%;
+    color: #ffffff;
+    position: fixed;
+    top: 0;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
-  .nav-Bar-Right {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-  }
 }
