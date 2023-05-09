@@ -1,3 +1,8 @@
+article {
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
 article:hover {
   box-shadow: 5px 10px;
   color: #f1a707;
@@ -24,6 +29,10 @@ article .tweet-head div span{
   display: flex;
   justify-content: right;
   font-size: 70%;
+}
+
+.tweetcontent {
+  word-wrap: break-word;
 }
 
 @media only screen and (min-width:1024px) {
